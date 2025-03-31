@@ -1,0 +1,45 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /cif-mongo
+
+
+spring:
+  data:
+    mongodb:
+      uri: mongodb://adminuser:password@localhost:27017
+#      uri: mongodb://root:example@localhost:27017
+      database: testcif
+#      MONGO_INITDB_ROOT_USERNAME: adminuser
+#      MONGO_INITDB_ROOT_PASSWORD: password
+
+  datasource:
+    query-timeout: 20
+    url: jdbc:postgresql://localhost:5432/postgres
+    username: postgres
+    password: postgres
+    driverClassName: org.postgresql.Driver
+    configuration:
+      maximum-pool-size: ${MAXIMUM_POOL_SIZE_USER:10}
+application:
+  swagger-url: http://localhost:8080/cif-mongo
+  swagger-title: cif-mongo
+  swagger-description: тестовый для проверки монго
+  scheduled:
+    closedPeriod: 1000
+    findBlockPeriod: 1000
+  logs:
+    amqp:
+      uri: amqp://amq:amq@localhost:5672
+      key: logs.local
+
+
+org:
+  springframework:
+    boot:
+      logging:
+        Loglevel: debug, info, error
+
+logging:
+  level:
+    org.springframework.web: debug
