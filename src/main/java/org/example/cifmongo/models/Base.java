@@ -10,10 +10,15 @@ public class Base {
     private String id;
     private String title;
     private FirstLevel firstLevel;
+//    private String _class;
 
     public Base(String title, FirstLevel firstLevel) {
         this.title = title;
         this.firstLevel = firstLevel;
+    }
+
+    public Base() {
+
     }
 
     public String getId() {
